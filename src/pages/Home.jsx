@@ -28,7 +28,7 @@ const Home = () => {
       </div>
       <Canvas
         className="w-full h-screen bg-transparent"
-        camera={{ near: 0.1, far: 1000 }}
+        camera={{ near: 0.1, far: 1000, fov: 90 }}
       >
         <Suspense fallback={<Loader />}>
           <directionalLight />
@@ -36,10 +36,15 @@ const Home = () => {
           <pointLight />
 
           <Character
-            position={characterPosition}
+            position={[0, -1.2, 3]}
             scale={characterScale}
             rotation={rotation}
           />
+
+          <mesh>
+            <planeGeometry />
+            <meshStandardMaterial />
+          </mesh>
         </Suspense>
       </Canvas>
     </section>
